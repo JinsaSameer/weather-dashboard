@@ -1,0 +1,80 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+  }
+.heading {
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    color: white;
+    
+    width : 100%;
+    
+}  
+
+
+
+
+#current-weather{
+
+  margin-left: 350px;
+  margin-top: 20px;
+  border-style: solid; width :30% ; height: 100%;color: black;
+  padding: 10px 20px;
+}
+#uv-index{
+  background-color: green;
+}
+.container1{
+  display: flex;
+  justify-content:space-between;
+  padding: 10px 10px;
+}
+#futureweather1{
+  margin-left: 330px;
+  border-style: solid; width :10% ; height: 100%;color: black;
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+
+}
+#futureweather2{
+  margin-left: 20px;
+    border-style: solid; width :10% ; height: 100%;color: black;
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+
+}
+#futureweather3{
+  margin-left: 20px;
+  border-style: solid; width :10% ; height: 100%;color: black;
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+
+}
+#futureweather4{
+  margin-left: 20px;
+  border-style: solid; width :10% ; height: 100%;color: black;
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+
+}
+#futureweather5{
+  margin-left: 20px;
+  border-style: solid; width :10% ; height: 100%;color: black;
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+
+}
+#five{
+  margin-left: 350px;
+  margin-top: 30px;
+}
+#weathericon{
+  margin-top: -10;
+  display: flex;
+  justify-content: center;
+}
