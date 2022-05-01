@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>weather-Dashboard</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <header class ="heading"><h1>Weather Dashboard</h1></header>
+    <div class="container">
+      <h2>Search for a City:</h2>
+      <input type="text" class="form-control" placeholder ="Enter City Name" id="search">
+      <button class="searchButton" id="searchButton1">Search<i class="fas fa-search"></i></button>
+
+    </div>
+
+    <div class="col-sm-12" id="current-weather">
+            <h3 class ="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+            <p id="currentDate" class="date"></p>
+            <p>Temperature:<span class="current" id="temperature"></span></p>
+            <p>Humidity:<span class="current" id="humidity"></span></p> 
+            <p>Wind Speed:<span class="current" id="speed"></span></p>
+            <p>UV index:<span class="current" id="uv-index"></span></p> 
+    </div>
+    <h1 id ="five">5-Day Forecast</h1>
+    <div class="container1">
+              <div class = "weatherforecast" id ="futureweather1">
+                <p id="currentDate1" class="date"></p>
+              <p>Temperature:<span class="current" id="temperature1"></span></p>
+                <p>Humidity:<span class="current" id="humidity1"></span></p> 
+                <p>Wind Speed:<span class="current" id="speed1"></span></p>
+                <p>UV index:<span class="current" id="uv-index1"></span></p> 
+            </div>
+            <div class = "weatherforecast" id ="futureweather2">
+              
+               <p id="currentDate2" class="date"></p>
+               <p>Temperature:<span class="current" id="temperature2"></span></p>                
+               <p>Humidity:<span class="current" id="humidity2"></span></p> 
+               <p>Wind Speed:<span class="current" id="speed2"></span></p>
+               <p>UV index:<span class="current" id="uv-index2"></span></p> 
+            </div>
+            <div class = "weatherforecast" id ="futureweather3">
+              <p id="currentDate3" class="date"></p>
+              <p>Temperature:<span class="current" id="temperature3"></span></p>
+              <p>Humidity:<span class="current" id="humidity3"></span></p> 
+                <p>Wind Speed:<span class="current" id="speed3"></span></p>
+                <p>UV index:<span class="current" id="uv-index3"></span></p> 
+            </div>
+            <div class = "weatherforecast" id ="futureweather4">
+              <p id="currentDate4" class="date"></p>
+              <p>Temperature:<span class="current" id="temperature4"></span></p>
+              
+                <p>Humidity:<span class="current" id="humidity4"></span></p> 
+                <p>Wind Speed:<span class="current" id="speed4"></span></p>
+                <p>UV index:<span class="current" id="uv-index4"></span></p> 
+            </div>
+            <div class = "weatherforecast" id ="futureweather5">
+              <p id="currentDate5" class="date"></p>
+              <p>Temperature:<span class="current" id="temperature5"></span></p>
+
+                <p>Humidity:<span class="current" id="humidity5"></span></p> 
+                <p>Wind Speed:<span class="current" id="speed5"></span></p>
+                <p>UV index:<span class="current" id="uv-index5"></span></p> 
+            </div>
+        </div>
+        
+        
+  <script src="./assets/script.js"></script>
+  </body>
+</html>
