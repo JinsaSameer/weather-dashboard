@@ -18,6 +18,8 @@ AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 ```
+![Screenshot (16)](https://user-images.githubusercontent.com/101385521/166138290-f57bff2a-64a3-463e-8f4a-427809464ef9.png)
+
 
 ## Acceptance Criteria
 
@@ -33,6 +35,5 @@ WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
-```![Screenshot (16)](https://user-images.githubusercontent.com/101385521/166138290-f57bff2a-64a3-463e-8f4a-427809464ef9.png)
-
+```
 
