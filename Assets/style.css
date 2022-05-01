@@ -73,3 +73,8 @@ body {
   margin-left: 350px;
   margin-top: 30px;
 }
+#weathericon{
+  margin-top: -10;
+  display: flex;
+  justify-content: center;
+}

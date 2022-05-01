@@ -10,6 +10,7 @@ var currentHumidty= document.querySelector('#humidity');
 var currentWindSpeed=document.querySelector('#speed');
 var currentUvindex= document.querySelector('#uv-index');
 var dateValue = document.querySelector('#currentDate');
+var imgIcon = document.querySelector('#weathericon');
 var dailyDateHandles = [
     document.querySelector('#currentDate1'),
     document.querySelector('#currentDate2'),
@@ -63,12 +64,17 @@ function UpdateWeatherInfo (myJson1, index)
     dailyWindHandles[index].innerHTML = myJson1.daily[index+1].wind_speed+"MPH";
     dailyUvHandles[index].innerHTML = myJson1.daily[index+1].uvi;
     if (myJson1.daily[index].uvi  > 5)
-        {
-            currentUvindex.style.backgroundColor= "red";
-        }
-        
-       // else if (myJson1.daily[index].uvi<5)
-
+    {
+      dailyUvHandles[index].style.backgroundColor= "red";  
+    }
+    else if (myJson1.daily[index].uvi<5)
+    {
+      dailyUvHandles[index].style.backgroundColor= "green";
+    }
+    else
+    {
+      dailyUvHandles[index].style.backgroundColor= "orange";
+    }
 
     /*currentTemperature.innerHTML =myJson1.daily[0].temp.day+"°F";
     currentUvindex.innerHTML = myJson1.daily[0].uvi;
@@ -92,6 +98,7 @@ async function asyncCall(apiUrl) {
       console.log( myJson.coord.lat, myJson.coord.lon);
       var nameValue =myJson.name;
       var tempValue =myJson.main.temp;
+      console.log( myJson.weather[0].icon);
 
       //var humidityValue =data['main']
       var windSpeedValue =myJson.wind.speed;
@@ -117,6 +124,10 @@ async function asyncCall(apiUrl) {
         {
             currentUvindex.style.backgroundColor= "red";
         }
+        // add icon url: https://openweathermap.org/img/w/01n.png
+        var iconUrl =  'https://openweathermap.org/img/w/'+myJson.weather[0].icon+'.png';
+        imgIcon.setAttribute('src',iconUrl);
+
         //dateValue.textContent = new Date(myJson1.daily[0].dt*1000).toDateString();
         dateValue.innerHTML = new Date(myJson1.daily[0].dt*1000).toLocaleDateString("en-US");
         currentWindSpeed.innerHTML = myJson1.daily[0].wind_speed+"MPH";
@@ -126,6 +137,23 @@ async function asyncCall(apiUrl) {
 
     }
     
+}
+//weather displays from common function per city
+function commonWeatherHandler(cityName){
+   // console.log(currentDate);
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&APPID='+apikey;
+    //var futureUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=32.7153&lon=-117.1573&units=imperial&exclude=current,minutely,hourly,alerts&appid='+apikey;
+    asyncCall(apiUrl);
+    //Adding city to local storage
+   }
+
+function historyBtnHandler(event){
+       
+   if(event.target)
+   {
+    commonWeatherHandler(event.target.innerHTML);
+   }
+   console.log(event);
 }
 
 function displaySearchHistory(){
@@ -140,6 +168,7 @@ function displaySearchHistory(){
             var btn = document.createElement("button") ;
             btn.textContent =cityList[index];
             document.body.appendChild(btn);
+            btn.addEventListener('click',historyBtnHandler);
         }
     }
 }
@@ -161,13 +190,8 @@ function searchHandler(event){
  var cityName = cityEl.value;
   console.log(cityName);
   event.preventDefault();
-  var currentDate = moment().format('dddd MMM DD YYYY HH:mm:ss');
-  //dateValue.textContent = currentDate;
-  console.log(currentDate);
-  var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&APPID='+apikey;
-  //var futureUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=32.7153&lon=-117.1573&units=imperial&exclude=current,minutely,hourly,alerts&appid='+apikey;
-  asyncCall(apiUrl);
-  //Adding city to local storage
+  
+  commonWeatherHandler(cityName);
   var cityList = [];
   var ReadCityList = [];
   ReadCityList = JSON.parse(localStorage.getItem("searchCitytHistory"));
@@ -186,6 +210,10 @@ function searchHandler(event){
   }
   localStorage.setItem("searchCitytHistory", JSON.stringify(cityList));
 
+
+  //var currentDate = moment().format('dddd MMM DD YYYY HH:mm:ss');
+  //dateValue.textContent = currentDate;
+  
 /*
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
